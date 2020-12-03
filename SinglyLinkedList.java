@@ -4,6 +4,30 @@ public class SinglyLinkedList {
         head = null;
     }
 
+    public void removeAt(int num) {
+        Node toRemove = find(num);
+        Node curr = head;
+        while (curr.next != null) {
+            if (curr.next == toRemove) {
+                curr.next = toRemove.next;
+            }
+            curr = curr.next;
+        }
+    }
+
+    public Node find(int num) {
+        Node curr = head;
+        if (head != null || head.next != null) {
+            while (curr.next != null) {
+                if (curr.value == num) {
+                    return curr;
+                }
+                curr = curr.next;
+            }
+        }
+        return null;
+    }
+
     public void printValues() {
         Node node = head;
         while (node != null) {
@@ -16,6 +40,7 @@ public class SinglyLinkedList {
         Node curr = head;
         if (curr == null || curr.next == null) {
             head = null;
+            return;
         }
         Node nextNode = curr.next;
         while (curr.next != null) {

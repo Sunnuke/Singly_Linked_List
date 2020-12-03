@@ -9,6 +9,8 @@ public class ListTester {
         sll.add(2);
         sll.remove();
         sll.remove();
+        sll.removeAt(10);
+        System.out.println("Node: " + sll.find(4) + "| Value " + sll.find(4).value);
         sll.printValues();
     }
 }
